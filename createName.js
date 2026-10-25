@@ -35,27 +35,27 @@ function CreateNameV2(Name, style) {
       let str = str.replace(/%20/g, " ");
       $(".class_tenKhachMoi").html(
         '<div class="ladi-paragraph ladi-transition"><span style="' +
-          style +
-          '">' +
-          str +
-          "</span></div>"
+        style +
+        '">' +
+        str +
+        "</span></div>"
       );
     } else {
       $(".class_tenKhachMoi").html(
         '<div class="ladi-paragraph ladi-transition"  ><span style="' +
-          style +
-          '">' +
-          str +
-          "</span></div>"
+        style +
+        '">' +
+        str +
+        "</span></div>"
       );
     }
   } else {
     $(".class_tenKhachMoi").html(
       '<div class="ladi-paragraph ladi-transition"  ><span style="' +
-        style +
-        '">' +
-        Name +
-        "</span></div>"
+      style +
+      '">' +
+      Name +
+      "</span></div>"
     );
   }
 }
@@ -64,6 +64,7 @@ function CreateNameV3(name, classAdd, styleName, styleWrapName) {
   var urlString = window.location.href;
   var url = new URL(urlString);
   var nameValue = url.searchParams.get("n");
+  const target = url.searchParams.get('target');
   const newName = String(nameValue);
 
   // let classAdd = ".class_tenKhachMoi"
@@ -81,7 +82,7 @@ function CreateNameV3(name, classAdd, styleName, styleWrapName) {
       setName = str;
     }
   } else {
-    setName = name;
+    setName = target === "bride" ? name : '您及家人参加';
   }
   let tagStyle =
     `<h3 class="ladi-headline ladi-transition"><div style="` +
