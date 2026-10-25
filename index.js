@@ -22,41 +22,41 @@
 
 // Lưu form vào GG sheet
 
-const GOOGLE_SCRIPT_URL_THAM_DU =
-  "https://script.google.com/macros/s/AKfycbxqJsFk_CJNoa9wZsT3Vl03fbFNLKdPGpT-FCHE61zkXjxus0MNKy2hHvfcS4wHWt_Cyg/exec";
-document
-  .querySelector("#form-loi-chuc-1")
-  .addEventListener("submit", function (e) {
-    e.preventDefault();
-    document.getElementById("SECTION20").scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-    const form = e.target; // Lấy form để reset sau này
-    const formData = new FormData(form);
-    let selected_form_6 = formData.getAll("form_item6");
-    let selected_form_8 = formData.getAll("form_item8");
-    let selected_form_12 = formData.getAll("form_item12");
+// const GOOGLE_SCRIPT_URL_THAM_DU =
+//   "https://script.google.com/macros/s/AKfycbxqJsFk_CJNoa9wZsT3Vl03fbFNLKdPGpT-FCHE61zkXjxus0MNKy2hHvfcS4wHWt_Cyg/exec";
+// document
+//   .querySelector("#form-loi-chuc-1")
+//   .addEventListener("submit", function (e) {
+//     e.preventDefault();
+//     document.getElementById("SECTION20").scrollIntoView({
+//       behavior: "smooth",
+//       block: "start",
+//     });
+//     const form = e.target; // Lấy form để reset sau này
+//     const formData = new FormData(form);
+//     let selected_form_6 = formData.getAll("form_item6");
+//     let selected_form_8 = formData.getAll("form_item8");
+//     let selected_form_12 = formData.getAll("form_item12");
 
-    const data = {
-      name: "'" + form.name.value,
-      attend: "'" + selected_form_6.join(", "), // Xác nhận tham dự
-      guest: "'" + selected_form_8.join(", "), // Khách của ai
-      wishVisibility: "'" + selected_form_12.join(", "), // Ai sẽ thấy lời chúc của bạn?
-      numGuests: "'" + form.form_item13.value, // Số lượng người tham dự
-      message: "'" + form.message.value,
-    };
+//     const data = {
+//       name: "'" + form.name.value,
+//       attend: "'" + selected_form_6.join(", "), // Xác nhận tham dự
+//       guest: "'" + selected_form_8.join(", "), // Khách của ai
+//       wishVisibility: "'" + selected_form_12.join(", "), // Ai sẽ thấy lời chúc của bạn?
+//       numGuests: "'" + form.form_item13.value, // Số lượng người tham dự
+//       message: "'" + form.message.value,
+//     };
 
-    fetch(GOOGLE_SCRIPT_URL_THAM_DU, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json()) // Nếu Apps Script trả về JSON
-      .then((res) => form.reset()); // Reset form sau khi gửi;
-  });
+//     fetch(GOOGLE_SCRIPT_URL_THAM_DU, {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/x-www-form-urlencoded",
+//       },
+//       body: JSON.stringify(data),
+//     })
+//       .then((res) => res.json()) // Nếu Apps Script trả về JSON
+//       .then((res) => form.reset()); // Reset form sau khi gửi;
+//   });
 
 // Hiển thị notification
 //     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
@@ -233,6 +233,7 @@ window.addEventListener('DOMContentLoaded', function () {
   //   const el = document.querySelector('#PARAGRAPH444 .ladi-paragraph');
   //   if (el) el.textContent = name;
   // }
+  console.log(2222, target)
   const brides = document.querySelectorAll('.bride');
   const grooms = document.querySelectorAll('.groom');
 
